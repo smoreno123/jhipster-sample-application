@@ -1,0 +1,85 @@
+{
+    "name": "ItemPedido",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "precio",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "tiempoPreparacion",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "tipoItemPedido",
+            "otherEntityRelationshipName": "item",
+            "relationshipName": "tipoItemPedido",
+            "otherEntityField": "nombreTipo",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "tipoCocina",
+            "otherEntityRelationshipName": "item",
+            "relationshipName": "tipoCocina",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "ingrediente",
+            "otherEntityRelationshipName": "item",
+            "relationshipName": "ingrediente",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "menu",
+            "otherEntityRelationshipName": "item",
+            "relationshipName": "menu",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valoracion",
+            "otherEntityRelationshipName": "itemPedido",
+            "relationshipName": "valoracion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "statusItemPedido",
+            "otherEntityRelationshipName": "itemPedido",
+            "relationshipName": "status"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "pedido",
+            "otherEntityRelationshipName": "itemPedido",
+            "relationshipName": "pedido",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191014110813",
+    "entityTableName": "item_pedido",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

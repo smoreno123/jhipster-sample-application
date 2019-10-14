@@ -1,0 +1,35 @@
+{
+    "name": "PagoPedido",
+    "fields": [
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pedido",
+            "otherEntityRelationshipName": "pago",
+            "relationshipName": "pedido",
+            "otherEntityField": "numPedido"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "comensal",
+            "otherEntityRelationshipName": "pago",
+            "relationshipName": "comensal",
+            "otherEntityField": "dni"
+        }
+    ],
+    "changelogDate": "20191014110819",
+    "entityTableName": "pago_pedido",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

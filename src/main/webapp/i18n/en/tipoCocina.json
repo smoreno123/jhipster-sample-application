@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "tipoCocina": {
+      "home": {
+        "title": "Tipo Cocinas",
+        "createLabel": "Create a new Tipo Cocina",
+        "createOrEditLabel": "Create or edit a Tipo Cocina",
+        "notFound": "No Tipo Cocinas found"
+      },
+      "created": "A new Tipo Cocina is created with identifier {{ param }}",
+      "updated": "A Tipo Cocina is updated with identifier {{ param }}",
+      "deleted": "A Tipo Cocina is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Cocina {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Cocina"
+      },
+      "nombre": "Nombre",
+      "item": "Item"
+    }
+  }
+}

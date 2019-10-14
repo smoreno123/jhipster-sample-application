@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="valoracion">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.valoracion.detail.title">Valoracion</span> {{valoracion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.valoracion.nota">Nota</span></dt>
+                <dd>
+                    <span>{{valoracion.nota}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.valoracion.observaciones">Observaciones</span></dt>
+                <dd>
+                    <span>{{valoracion.observaciones}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.valoracion.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{valoracion.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.valoracion.pedido">Pedido</span></dt>
+                <dd>
+                    <div *ngIf="valoracion.pedido">
+                        <a [routerLink]="['/pedido', valoracion.pedido?.id, 'view']">{{valoracion.pedido?.numPedido}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.valoracion.itemPedido">Item Pedido</span></dt>
+                <dd>
+                    <div *ngIf="valoracion.itemPedido">
+                        <a [routerLink]="['/item-pedido', valoracion.itemPedido?.id, 'view']">{{valoracion.itemPedido?.nombre}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.valoracion.comensal">Comensal</span></dt>
+                <dd>
+                    <div *ngIf="valoracion.comensal">
+                        <a [routerLink]="['/comensal', valoracion.comensal?.id, 'view']">{{valoracion.comensal?.dni}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/valoracion', valoracion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

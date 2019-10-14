@@ -1,0 +1,24 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "pagoPedido": {
+      "home": {
+        "title": "Pago Pedidos",
+        "createLabel": "Create a new Pago Pedido",
+        "createOrEditLabel": "Create or edit a Pago Pedido",
+        "notFound": "No Pago Pedidos found"
+      },
+      "created": "A new Pago Pedido is created with identifier {{ param }}",
+      "updated": "A Pago Pedido is updated with identifier {{ param }}",
+      "deleted": "A Pago Pedido is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pago Pedido {{ id }}?"
+      },
+      "detail": {
+        "title": "Pago Pedido"
+      },
+      "cantidad": "Cantidad",
+      "pedido": "Pedido",
+      "comensal": "Comensal"
+    }
+  }
+}

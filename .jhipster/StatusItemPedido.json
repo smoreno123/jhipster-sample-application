@@ -1,0 +1,43 @@
+{
+    "name": "StatusItemPedido",
+    "fields": [
+        {
+            "fieldName": "preparado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "horaInicio",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "horaFinalizacion",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pedido",
+            "otherEntityRelationshipName": "status",
+            "relationshipName": "pedido",
+            "otherEntityField": "numPedido"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "itemPedido",
+            "otherEntityRelationshipName": "status",
+            "relationshipName": "itemPedido",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20191014110822",
+    "entityTableName": "status_item_pedido",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

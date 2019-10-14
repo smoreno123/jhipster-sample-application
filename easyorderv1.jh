@@ -1,0 +1,97 @@
+
+
+entity ItemPedido {
+	nombre String,
+	descripcion String,
+    precio BigDecimal,
+    tiempoPreparacion Integer
+}
+
+
+
+entity Pedido {
+	numPedido Integer,
+    fechaPedido ZonedDateTime,
+    precio BigDecimal,
+    observacionesPrecio String
+}
+
+entity Ingrediente{
+	nombre String,
+    vegetariano Boolean,
+    vegano Boolean,
+    kcal Integer
+}
+
+entity Mesa{
+	numMesa Integer,
+    capacidad Integer
+}
+
+entity Valoracion{
+	nota Integer,
+    observaciones String,
+    fecha ZonedDateTime
+}
+
+entity TipoCocina{
+	nombre String
+}
+
+entity PagoPedido{
+	cantidad Float
+}
+
+entity TipoItemPedido{
+	nombreTipo String
+}
+entity Menu{
+	fechaInicio ZonedDateTime,
+    fechaFinal ZonedDateTime,
+    nombre String,
+    precio Float
+}
+
+entity StatusItemPedido{
+	preparado Boolean,
+    horaInicio ZonedDateTime,
+    horaFinalizacion ZonedDateTime
+}
+
+entity Comensal{
+	dni String,
+    nombre String
+}
+
+relationship ManyToMany {
+	ItemPedido{tipoItemPedido(nombreTipo)} to TipoItemPedido{item},
+    ItemPedido{tipoCocina(nombre)} to TipoCocina{item},
+    ItemPedido{ingrediente(nombre)} to Ingrediente{item},
+    ItemPedido{menu(nombre)}to Menu{item},
+    
+    Pedido{menu(nombre)} to Menu{pedido},
+    
+    Pedido{itemPedido(nombre)} to ItemPedido{pedido}
+    
+}
+
+relationship ManyToOne{
+	Valoracion{pedido(numPedido)} to Pedido{valoracion},
+    Valoracion{itemPedido(nombre)} to ItemPedido{valoracion},
+    Valoracion{comensal(dni)} to Comensal{valoracion},
+    
+    Pedido{mesa(numMesa)} to Mesa{pedido},
+    
+    PagoPedido{pedido(numPedido)}to Pedido{pago},
+    PagoPedido{comensal(dni)} to Comensal{pago},
+    
+    StatusItemPedido{pedido(numPedido)} to Pedido{status},
+    StatusItemPedido{itemPedido(nombre)}to ItemPedido{status}
+}
+
+relationship OneToOne{
+	Comensal{usuario(login)} to User
+}
+
+
+

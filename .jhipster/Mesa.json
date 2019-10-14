@@ -1,0 +1,31 @@
+{
+    "name": "Mesa",
+    "fields": [
+        {
+            "fieldName": "numMesa",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "capacidad",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pedido",
+            "otherEntityRelationshipName": "mesa",
+            "relationshipName": "pedido"
+        }
+    ],
+    "changelogDate": "20191014110816",
+    "entityTableName": "mesa",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

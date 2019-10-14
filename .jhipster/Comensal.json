@@ -1,0 +1,45 @@
+{
+    "name": "Comensal",
+    "fields": [
+        {
+            "fieldName": "dni",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "comensal",
+            "relationshipName": "usuario",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valoracion",
+            "otherEntityRelationshipName": "comensal",
+            "relationshipName": "valoracion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pagoPedido",
+            "otherEntityRelationshipName": "comensal",
+            "relationshipName": "pago"
+        }
+    ],
+    "changelogDate": "20191014110823",
+    "entityTableName": "comensal",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "tipoItemPedido": {
+      "home": {
+        "title": "Tipo Item Pedidos",
+        "createLabel": "Create a new Tipo Item Pedido",
+        "createOrEditLabel": "Create or edit a Tipo Item Pedido",
+        "notFound": "No Tipo Item Pedidos found"
+      },
+      "created": "A new Tipo Item Pedido is created with identifier {{ param }}",
+      "updated": "A Tipo Item Pedido is updated with identifier {{ param }}",
+      "deleted": "A Tipo Item Pedido is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Item Pedido {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Item Pedido"
+      },
+      "nombreTipo": "Nombre Tipo",
+      "item": "Item"
+    }
+  }
+}

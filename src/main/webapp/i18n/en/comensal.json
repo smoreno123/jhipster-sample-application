@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "comensal": {
+      "home": {
+        "title": "Comensals",
+        "createLabel": "Create a new Comensal",
+        "createOrEditLabel": "Create or edit a Comensal",
+        "notFound": "No Comensals found"
+      },
+      "created": "A new Comensal is created with identifier {{ param }}",
+      "updated": "A Comensal is updated with identifier {{ param }}",
+      "deleted": "A Comensal is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Comensal {{ id }}?"
+      },
+      "detail": {
+        "title": "Comensal"
+      },
+      "dni": "Dni",
+      "nombre": "Nombre",
+      "usuario": "Usuario",
+      "valoracion": "Valoracion",
+      "pago": "Pago"
+    }
+  }
+}

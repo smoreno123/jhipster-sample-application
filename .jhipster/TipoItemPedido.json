@@ -1,0 +1,29 @@
+{
+    "name": "TipoItemPedido",
+    "fields": [
+        {
+            "fieldName": "nombreTipo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "itemPedido",
+            "otherEntityRelationshipName": "tipoItemPedido",
+            "relationshipName": "item",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191014110820",
+    "entityTableName": "tipo_item_pedido",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

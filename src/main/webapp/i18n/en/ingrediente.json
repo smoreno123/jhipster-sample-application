@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "ingrediente": {
+      "home": {
+        "title": "Ingredientes",
+        "createLabel": "Create a new Ingrediente",
+        "createOrEditLabel": "Create or edit a Ingrediente",
+        "notFound": "No Ingredientes found"
+      },
+      "created": "A new Ingrediente is created with identifier {{ param }}",
+      "updated": "A Ingrediente is updated with identifier {{ param }}",
+      "deleted": "A Ingrediente is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ingrediente {{ id }}?"
+      },
+      "detail": {
+        "title": "Ingrediente"
+      },
+      "nombre": "Nombre",
+      "vegetariano": "Vegetariano",
+      "vegano": "Vegano",
+      "kcal": "Kcal",
+      "item": "Item"
+    }
+  }
+}

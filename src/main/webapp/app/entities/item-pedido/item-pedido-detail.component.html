@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemPedido">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.detail.title">Item Pedido</span> {{itemPedido.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{itemPedido.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{itemPedido.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.precio">Precio</span></dt>
+                <dd>
+                    <span>{{itemPedido.precio}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.tiempoPreparacion">Tiempo Preparacion</span></dt>
+                <dd>
+                    <span>{{itemPedido.tiempoPreparacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.tipoItemPedido">Tipo Item Pedido</span></dt>
+                <dd>
+                    <span *ngFor="let tipoItemPedido of itemPedido.tipoItemPedidos; let last = last">
+                        <a [routerLink]="['/tipo-item-pedido', tipoItemPedido?.id, 'view' ]">{{tipoItemPedido.nombreTipo}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.tipoCocina">Tipo Cocina</span></dt>
+                <dd>
+                    <span *ngFor="let tipoCocina of itemPedido.tipoCocinas; let last = last">
+                        <a [routerLink]="['/tipo-cocina', tipoCocina?.id, 'view' ]">{{tipoCocina.nombre}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.ingrediente">Ingrediente</span></dt>
+                <dd>
+                    <span *ngFor="let ingrediente of itemPedido.ingredientes; let last = last">
+                        <a [routerLink]="['/ingrediente', ingrediente?.id, 'view' ]">{{ingrediente.nombre}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.itemPedido.menu">Menu</span></dt>
+                <dd>
+                    <span *ngFor="let menu of itemPedido.menus; let last = last">
+                        <a [routerLink]="['/menu', menu?.id, 'view' ]">{{menu.nombre}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-pedido', itemPedido.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

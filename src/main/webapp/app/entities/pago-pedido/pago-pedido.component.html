@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.home.title">Pago Pedidos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pago-pedido" [routerLink]="['/pago-pedido/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.home.createLabel">
+            Create a new Pago Pedido
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="pagoPedidos?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.home.notFound">No pagoPedidos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="pagoPedidos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.cantidad">Cantidad</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.pedido">Pedido</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.comensal">Comensal</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pagoPedido of pagoPedidos ;trackBy: trackId">
+                <td><a [routerLink]="['/pago-pedido', pagoPedido.id, 'view' ]">{{pagoPedido.id}}</a></td>
+                <td>{{pagoPedido.cantidad}}</td>
+                <td>
+                    <div *ngIf="pagoPedido.pedido">
+                        <a [routerLink]="['/pedido', pagoPedido.pedido?.id, 'view' ]" >{{pagoPedido.pedido?.numPedido}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pagoPedido.comensal">
+                        <a [routerLink]="['/comensal', pagoPedido.comensal?.id, 'view' ]" >{{pagoPedido.comensal?.dni}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/pago-pedido', pagoPedido.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/pago-pedido', pagoPedido.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/pago-pedido', { outlets: { popup: pagoPedido.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

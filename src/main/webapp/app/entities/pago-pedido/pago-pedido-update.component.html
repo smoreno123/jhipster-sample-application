@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-pago-pedido-heading" jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.home.createOrEditLabel">Create or edit a Pago Pedido</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.cantidad" for="field_cantidad">Cantidad</label>
+                    <input type="number" class="form-control" name="cantidad" id="field_cantidad"
+                           formControlName="cantidad"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.pedido" for="field_pedido">Pedido</label>
+                    <select class="form-control" id="field_pedido" name="pedido" formControlName="pedido">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pedidoOption.id === editForm.get('pedido').value?.id ? editForm.get('pedido').value : pedidoOption" *ngFor="let pedidoOption of pedidos; trackBy: trackPedidoById">{{pedidoOption.numPedido}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.comensal" for="field_comensal">Comensal</label>
+                    <select class="form-control" id="field_comensal" name="comensal" formControlName="comensal">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="comensalOption.id === editForm.get('comensal').value?.id ? editForm.get('comensal').value : comensalOption" *ngFor="let comensalOption of comensals; trackBy: trackComensalById">{{comensalOption.dni}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

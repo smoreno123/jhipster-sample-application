@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-pedido-heading" jhiTranslate="jhipsterSampleApplicationApp.pedido.home.createOrEditLabel">Create or edit a Pedido</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.pedido.numPedido" for="field_numPedido">Num Pedido</label>
+                    <input type="number" class="form-control" name="numPedido" id="field_numPedido"
+                           formControlName="numPedido"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.pedido.fechaPedido" for="field_fechaPedido">Fecha Pedido</label>
+                    <div class="d-flex">
+                        <input id="field_fechaPedido" type="datetime-local" class="form-control" name="fechaPedido" formControlName="fechaPedido" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.pedido.precio" for="field_precio">Precio</label>
+                    <input type="number" class="form-control" name="precio" id="field_precio"
+                           formControlName="precio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.pedido.observacionesPrecio" for="field_observacionesPrecio">Observaciones Precio</label>
+                    <input type="text" class="form-control" name="observacionesPrecio" id="field_observacionesPrecio"
+                           formControlName="observacionesPrecio"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.pedido.mesa" for="field_mesa">Mesa</label>
+                    <select class="form-control" id="field_mesa" name="mesa" formControlName="mesa">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mesaOption.id === editForm.get('mesa').value?.id ? editForm.get('mesa').value : mesaOption" *ngFor="let mesaOption of mesas; trackBy: trackMesaById">{{mesaOption.numMesa}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterSampleApplicationApp.pedido.menu" for="field_menus">Menu</label>
+                    <select class="form-control" id="field_menus" multiple name="menus" formControlName="menus">
+                        <option [ngValue]="getSelected(editForm.get('menus').value, menuOption)" *ngFor="let menuOption of menus; trackBy: trackMenuById">{{menuOption.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterSampleApplicationApp.pedido.itemPedido" for="field_itemPedidos">Item Pedido</label>
+                    <select class="form-control" id="field_itemPedidos" multiple name="itemPedidos" formControlName="itemPedidos">
+                        <option [ngValue]="getSelected(editForm.get('itemPedidos').value, itemPedidoOption)" *ngFor="let itemPedidoOption of itempedidos; trackBy: trackItemPedidoById">{{itemPedidoOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

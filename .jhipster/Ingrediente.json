@@ -1,0 +1,41 @@
+{
+    "name": "Ingrediente",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vegetariano",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "vegano",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "kcal",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "itemPedido",
+            "otherEntityRelationshipName": "ingrediente",
+            "relationshipName": "item",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191014110815",
+    "entityTableName": "ingrediente",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

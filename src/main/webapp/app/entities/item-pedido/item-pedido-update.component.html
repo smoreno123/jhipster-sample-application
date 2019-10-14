@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-item-pedido-heading" jhiTranslate="jhipsterSampleApplicationApp.itemPedido.home.createOrEditLabel">Create or edit a Item Pedido</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.itemPedido.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.itemPedido.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.itemPedido.precio" for="field_precio">Precio</label>
+                    <input type="number" class="form-control" name="precio" id="field_precio"
+                           formControlName="precio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.itemPedido.tiempoPreparacion" for="field_tiempoPreparacion">Tiempo Preparacion</label>
+                    <input type="number" class="form-control" name="tiempoPreparacion" id="field_tiempoPreparacion"
+                           formControlName="tiempoPreparacion"/>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterSampleApplicationApp.itemPedido.tipoItemPedido" for="field_tipoItemPedidos">Tipo Item Pedido</label>
+                    <select class="form-control" id="field_tipoItemPedidos" multiple name="tipoItemPedidos" formControlName="tipoItemPedidos">
+                        <option [ngValue]="getSelected(editForm.get('tipoItemPedidos').value, tipoItemPedidoOption)" *ngFor="let tipoItemPedidoOption of tipoitempedidos; trackBy: trackTipoItemPedidoById">{{tipoItemPedidoOption.nombreTipo}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterSampleApplicationApp.itemPedido.tipoCocina" for="field_tipoCocinas">Tipo Cocina</label>
+                    <select class="form-control" id="field_tipoCocinas" multiple name="tipoCocinas" formControlName="tipoCocinas">
+                        <option [ngValue]="getSelected(editForm.get('tipoCocinas').value, tipoCocinaOption)" *ngFor="let tipoCocinaOption of tipococinas; trackBy: trackTipoCocinaById">{{tipoCocinaOption.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterSampleApplicationApp.itemPedido.ingrediente" for="field_ingredientes">Ingrediente</label>
+                    <select class="form-control" id="field_ingredientes" multiple name="ingredientes" formControlName="ingredientes">
+                        <option [ngValue]="getSelected(editForm.get('ingredientes').value, ingredienteOption)" *ngFor="let ingredienteOption of ingredientes; trackBy: trackIngredienteById">{{ingredienteOption.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterSampleApplicationApp.itemPedido.menu" for="field_menus">Menu</label>
+                    <select class="form-control" id="field_menus" multiple name="menus" formControlName="menus">
+                        <option [ngValue]="getSelected(editForm.get('menus').value, menuOption)" *ngFor="let menuOption of menus; trackBy: trackMenuById">{{menuOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

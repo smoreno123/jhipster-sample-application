@@ -1,0 +1,49 @@
+{
+    "name": "Menu",
+    "fields": [
+        {
+            "fieldName": "fechaInicio",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "fechaFinal",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "precio",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "itemPedido",
+            "otherEntityRelationshipName": "menu",
+            "relationshipName": "item",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "pedido",
+            "otherEntityRelationshipName": "menu",
+            "relationshipName": "pedido",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191014110821",
+    "entityTableName": "menu",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

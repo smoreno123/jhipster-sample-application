@@ -7,6 +7,17 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "itemPedido": "Item Pedido",
+        "pedido": "Pedido",
+        "ingrediente": "Ingrediente",
+        "mesa": "Mesa",
+        "valoracion": "Valoracion",
+        "tipoCocina": "Tipo Cocina",
+        "pagoPedido": "Pago Pedido",
+        "tipoItemPedido": "Tipo Item Pedido",
+        "menu": "Menu",
+        "statusItemPedido": "Status Item Pedido",
+        "comensal": "Comensal",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
