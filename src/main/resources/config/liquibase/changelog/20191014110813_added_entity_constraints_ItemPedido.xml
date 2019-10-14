@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ItemPedido.
+    -->
+    <changeSet id="20191014110813-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="item_pedido_id"
+                                 baseTableName="item_pedido_tipo_item_pedido"
+                                 constraintName="fk_item_pedido_tipo_item_pedido_item_pedido_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_pedido"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_item_pedido_id"
+                                 baseTableName="item_pedido_tipo_item_pedido"
+                                 constraintName="fk_item_pedido_tipo_item_pedido_tipo_item_pedido_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_item_pedido"/>
+        
+        <addForeignKeyConstraint baseColumnNames="item_pedido_id"
+                                 baseTableName="item_pedido_tipo_cocina"
+                                 constraintName="fk_item_pedido_tipo_cocina_item_pedido_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_pedido"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_cocina_id"
+                                 baseTableName="item_pedido_tipo_cocina"
+                                 constraintName="fk_item_pedido_tipo_cocina_tipo_cocina_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_cocina"/>
+        
+        <addForeignKeyConstraint baseColumnNames="item_pedido_id"
+                                 baseTableName="item_pedido_ingrediente"
+                                 constraintName="fk_item_pedido_ingrediente_item_pedido_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_pedido"/>
+
+        <addForeignKeyConstraint baseColumnNames="ingrediente_id"
+                                 baseTableName="item_pedido_ingrediente"
+                                 constraintName="fk_item_pedido_ingrediente_ingrediente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingrediente"/>
+        
+        <addForeignKeyConstraint baseColumnNames="item_pedido_id"
+                                 baseTableName="item_pedido_menu"
+                                 constraintName="fk_item_pedido_menu_item_pedido_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_pedido"/>
+
+        <addForeignKeyConstraint baseColumnNames="menu_id"
+                                 baseTableName="item_pedido_menu"
+                                 constraintName="fk_item_pedido_menu_menu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="menu"/>
+        
+    </changeSet>
+</databaseChangeLog>

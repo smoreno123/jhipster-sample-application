@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pagoPedido">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.detail.title">Pago Pedido</span> {{pagoPedido.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.cantidad">Cantidad</span></dt>
+                <dd>
+                    <span>{{pagoPedido.cantidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.pedido">Pedido</span></dt>
+                <dd>
+                    <div *ngIf="pagoPedido.pedido">
+                        <a [routerLink]="['/pedido', pagoPedido.pedido?.id, 'view']">{{pagoPedido.pedido?.numPedido}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.pagoPedido.comensal">Comensal</span></dt>
+                <dd>
+                    <div *ngIf="pagoPedido.comensal">
+                        <a [routerLink]="['/comensal', pagoPedido.comensal?.id, 'view']">{{pagoPedido.comensal?.dni}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pago-pedido', pagoPedido.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

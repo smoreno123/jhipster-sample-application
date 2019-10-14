@@ -1,0 +1,74 @@
+{
+    "name": "Pedido",
+    "fields": [
+        {
+            "fieldName": "numPedido",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fechaPedido",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "precio",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "observacionesPrecio",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "mesa",
+            "otherEntityRelationshipName": "pedido",
+            "relationshipName": "mesa",
+            "otherEntityField": "numMesa"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "menu",
+            "otherEntityRelationshipName": "pedido",
+            "relationshipName": "menu",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "itemPedido",
+            "otherEntityRelationshipName": "pedido",
+            "relationshipName": "itemPedido",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valoracion",
+            "otherEntityRelationshipName": "pedido",
+            "relationshipName": "valoracion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pagoPedido",
+            "otherEntityRelationshipName": "pedido",
+            "relationshipName": "pago"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "statusItemPedido",
+            "otherEntityRelationshipName": "pedido",
+            "relationshipName": "status"
+        }
+    ],
+    "changelogDate": "20191014110814",
+    "entityTableName": "pedido",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

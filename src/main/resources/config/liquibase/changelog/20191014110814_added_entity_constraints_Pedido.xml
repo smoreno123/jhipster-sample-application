@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Pedido.
+    -->
+    <changeSet id="20191014110814-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="mesa_id"
+                                 baseTableName="pedido"
+                                 constraintName="fk_pedido_mesa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mesa"/>
+
+        <addForeignKeyConstraint baseColumnNames="pedido_id"
+                                 baseTableName="pedido_menu"
+                                 constraintName="fk_pedido_menu_pedido_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pedido"/>
+
+        <addForeignKeyConstraint baseColumnNames="menu_id"
+                                 baseTableName="pedido_menu"
+                                 constraintName="fk_pedido_menu_menu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="menu"/>
+        
+        <addForeignKeyConstraint baseColumnNames="pedido_id"
+                                 baseTableName="pedido_item_pedido"
+                                 constraintName="fk_pedido_item_pedido_pedido_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pedido"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_pedido_id"
+                                 baseTableName="pedido_item_pedido"
+                                 constraintName="fk_pedido_item_pedido_item_pedido_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_pedido"/>
+        
+    </changeSet>
+</databaseChangeLog>

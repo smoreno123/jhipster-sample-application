@@ -42,6 +42,37 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.ItemPedido.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ItemPedido.class.getName() + ".tipoItemPedidos");
+            createCache(cm, com.mycompany.myapp.domain.ItemPedido.class.getName() + ".tipoCocinas");
+            createCache(cm, com.mycompany.myapp.domain.ItemPedido.class.getName() + ".ingredientes");
+            createCache(cm, com.mycompany.myapp.domain.ItemPedido.class.getName() + ".menus");
+            createCache(cm, com.mycompany.myapp.domain.ItemPedido.class.getName() + ".valoracions");
+            createCache(cm, com.mycompany.myapp.domain.ItemPedido.class.getName() + ".statuses");
+            createCache(cm, com.mycompany.myapp.domain.ItemPedido.class.getName() + ".pedidos");
+            createCache(cm, com.mycompany.myapp.domain.Pedido.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Pedido.class.getName() + ".menus");
+            createCache(cm, com.mycompany.myapp.domain.Pedido.class.getName() + ".itemPedidos");
+            createCache(cm, com.mycompany.myapp.domain.Pedido.class.getName() + ".valoracions");
+            createCache(cm, com.mycompany.myapp.domain.Pedido.class.getName() + ".pagos");
+            createCache(cm, com.mycompany.myapp.domain.Pedido.class.getName() + ".statuses");
+            createCache(cm, com.mycompany.myapp.domain.Ingrediente.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Ingrediente.class.getName() + ".items");
+            createCache(cm, com.mycompany.myapp.domain.Mesa.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Mesa.class.getName() + ".pedidos");
+            createCache(cm, com.mycompany.myapp.domain.Valoracion.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TipoCocina.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TipoCocina.class.getName() + ".items");
+            createCache(cm, com.mycompany.myapp.domain.PagoPedido.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TipoItemPedido.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TipoItemPedido.class.getName() + ".items");
+            createCache(cm, com.mycompany.myapp.domain.Menu.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Menu.class.getName() + ".items");
+            createCache(cm, com.mycompany.myapp.domain.Menu.class.getName() + ".pedidos");
+            createCache(cm, com.mycompany.myapp.domain.StatusItemPedido.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Comensal.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Comensal.class.getName() + ".valoracions");
+            createCache(cm, com.mycompany.myapp.domain.Comensal.class.getName() + ".pagos");
             // jhipster-needle-ehcache-add-entry
         };
     }

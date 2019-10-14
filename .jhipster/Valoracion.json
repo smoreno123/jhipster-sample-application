@@ -1,0 +1,50 @@
+{
+    "name": "Valoracion",
+    "fields": [
+        {
+            "fieldName": "nota",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "observaciones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pedido",
+            "otherEntityRelationshipName": "valoracion",
+            "relationshipName": "pedido",
+            "otherEntityField": "numPedido"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "itemPedido",
+            "otherEntityRelationshipName": "valoracion",
+            "relationshipName": "itemPedido",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "comensal",
+            "otherEntityRelationshipName": "valoracion",
+            "relationshipName": "comensal",
+            "otherEntityField": "dni"
+        }
+    ],
+    "changelogDate": "20191014110817",
+    "entityTableName": "valoracion",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

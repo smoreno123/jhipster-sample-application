@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="statusItemPedido">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.statusItemPedido.detail.title">Status Item Pedido</span> {{statusItemPedido.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.statusItemPedido.preparado">Preparado</span></dt>
+                <dd>
+                    <span>{{statusItemPedido.preparado}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.statusItemPedido.horaInicio">Hora Inicio</span></dt>
+                <dd>
+                    <span>{{statusItemPedido.horaInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.statusItemPedido.horaFinalizacion">Hora Finalizacion</span></dt>
+                <dd>
+                    <span>{{statusItemPedido.horaFinalizacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.statusItemPedido.pedido">Pedido</span></dt>
+                <dd>
+                    <div *ngIf="statusItemPedido.pedido">
+                        <a [routerLink]="['/pedido', statusItemPedido.pedido?.id, 'view']">{{statusItemPedido.pedido?.numPedido}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.statusItemPedido.itemPedido">Item Pedido</span></dt>
+                <dd>
+                    <div *ngIf="statusItemPedido.itemPedido">
+                        <a [routerLink]="['/item-pedido', statusItemPedido.itemPedido?.id, 'view']">{{statusItemPedido.itemPedido?.nombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/status-item-pedido', statusItemPedido.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

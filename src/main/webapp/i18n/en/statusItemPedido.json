@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "statusItemPedido": {
+      "home": {
+        "title": "Status Item Pedidos",
+        "createLabel": "Create a new Status Item Pedido",
+        "createOrEditLabel": "Create or edit a Status Item Pedido",
+        "notFound": "No Status Item Pedidos found"
+      },
+      "created": "A new Status Item Pedido is created with identifier {{ param }}",
+      "updated": "A Status Item Pedido is updated with identifier {{ param }}",
+      "deleted": "A Status Item Pedido is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Status Item Pedido {{ id }}?"
+      },
+      "detail": {
+        "title": "Status Item Pedido"
+      },
+      "preparado": "Preparado",
+      "horaInicio": "Hora Inicio",
+      "horaFinalizacion": "Hora Finalizacion",
+      "pedido": "Pedido",
+      "itemPedido": "Item Pedido"
+    }
+  }
+}

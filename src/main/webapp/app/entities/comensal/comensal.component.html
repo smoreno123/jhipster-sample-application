@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.comensal.home.title">Comensals</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-comensal" [routerLink]="['/comensal/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.comensal.home.createLabel">
+            Create a new Comensal
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="comensals?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.comensal.home.notFound">No comensals found</span>
+    </div>
+    <div class="table-responsive" *ngIf="comensals?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.comensal.dni">Dni</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.comensal.nombre">Nombre</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.comensal.usuario">Usuario</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let comensal of comensals ;trackBy: trackId">
+                <td><a [routerLink]="['/comensal', comensal.id, 'view' ]">{{comensal.id}}</a></td>
+                <td>{{comensal.dni}}</td>
+                <td>{{comensal.nombre}}</td>
+                <td>
+                    {{comensal.usuario?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/comensal', comensal.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/comensal', comensal.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/comensal', { outlets: { popup: comensal.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
